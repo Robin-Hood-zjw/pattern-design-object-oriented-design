@@ -1,1 +1,1 @@
-# pattern-design-object-oriented-design
+# Pattern Design: Object-oriented Design
