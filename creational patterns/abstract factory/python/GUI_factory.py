@@ -66,6 +66,8 @@ class Brand_Manufacturer(ABC):
         self.button.paint()
         self.checkbox.paint()
 
+
+
 if __name__ == "__main__":
     mac_manufacturer = MacOS_Factory()
     win_manufacturer = Windows_Factory()
