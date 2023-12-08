@@ -13,7 +13,7 @@ class Car(ABC):
     def get_capacity(self) -> int:
         return self._capacity
     
-class _product(Car):
+class SUV(Car):
     def __init__(self) -> None:
         self._weight = 4449
 
