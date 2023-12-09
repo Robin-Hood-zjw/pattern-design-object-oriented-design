@@ -44,11 +44,11 @@ class EmployeeSystem(ABC):
         self.registered_employees = []
 
     def add_employee(self, employee: Employee) -> None:
-        if not isinstance(employee.get_employee_id(), int):
-            last_id = self.registered_employees[-1].get_employee_id()
-            employee.add_employee_id(last_id + 1)
+      if employee.get_employee_id() == -1:
+        last_id = self.registered_employees[-1].get_employee_id()
+        employee.add_employee_id(last_id + 1)
 
-        self.registered_employees.append(employee)
+      self.registered_employees.append(employee)
 
 
 class Singleton(ABC):
