@@ -23,7 +23,7 @@ class Sedan(Car):
 
 
 class BMW_Builder(ABC):
-    def reset(self) -> None:
+    def __init__(self)  -> None:
         pass
 
     def add_brand(self) -> None:
@@ -46,7 +46,7 @@ class BMW_Builder(ABC):
 
 
 class BMW_X5_Builder(BMW_Builder):
-    def reset(self) -> None:
+    def __init__(self)  -> None:
         self._product = SUV()
 
     def add_brand(self) -> None:
@@ -69,7 +69,7 @@ class BMW_X5_Builder(BMW_Builder):
 
 
 class BMW_M5_Builder(BMW_Builder):
-    def reset(self) -> None:
+    def __init__(self)  -> None:
         self._product = Sedan()
 
     def add_brand(self) -> None:
@@ -101,7 +101,6 @@ class BMW_Car_Director:
         self._car_builder = builder
     
     def manufacture(self) -> Car:
-        self._car_builder.reset()
         self._car_builder.add_brand()
         self._car_builder.add_tyres()
         self._car_builder.add_frame()
