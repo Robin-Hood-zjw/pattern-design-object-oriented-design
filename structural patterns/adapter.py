@@ -1,32 +1,54 @@
 from abc import ABC
 
 class CelsiusTemperature(ABC):
-    def get_celsius(self):
+    def get_temperature(self):
         pass
 
 class FahrenheitTemperature(ABC):
-    def __init__(self, temperature: int) -> None:
-        self.fahrenheit_temparature = temperature
+    def get_temperature(self):
+        pass
 
-    def get_fahrenheit(self) -> int:
-        return self.fahrenheit_temparature
+class Celsius(CelsiusTemperature):
+    def __init__(self, temperature: int) -> None:
+        self.temperature = temperature
+
+    def get_temperature(self) -> int:
+        return self.temperature
+    
+class Fahrenheit(FahrenheitTemperature):
+    def __init__(self, temperature: int) -> None:
+        self.temperature = temperature
+
+    def get_temperature(self) -> int:
+        return self.temperature
     
 
-class FahrenheitToCelsius_Adapter(CelsiusTemperature, FahrenheitTemperature):
-    def __init__(self, temperature: int) -> None:
-        super().__init__(temperature)
+class Adapter(CelsiusTemperature, FahrenheitTemperature):
+    def __init__(self, celsius=None, fahrenheit=None) -> None:
+        if celsius:
+            self.celsius = celsius
+            self.fahrenheit = Fahrenheit(celsius.get_temperature() * 9 / 5 + 32)
+        else:
+            self.fahrenheit = fahrenheit
+            self.celsius = Celsius((fahrenheit.get_temperature() - 32) * 5 / 9)
 
-    def get_celsius(self) -> None:
-        return (super().get_fahrenheit() - 32) * 5 / 9
+    def get_celsius_temperature(self) -> int:
+        return float(self.celsius.get_temperature())
     
-
+    def get_fahrenheit_temperature(self) -> int:
+        return float(self.fahrenheit.get_temperature())
 
 if __name__ == '__main__':
-    f = FahrenheitTemperature(100)
-    adapter = FahrenheitToCelsius_Adapter(f.get_fahrenheit())
+    celsius = Celsius(100)
+    fahrenheit = Fahrenheit(100)
 
-    f_temperature = f.get_fahrenheit()
-    c_tempetature = adapter.get_celsius()
+    adapter1 = Adapter(celsius=celsius)
+    adapter2 = Adapter(fahrenheit=fahrenheit)
 
-    print(f'\nCelsius Temperature: {c_tempetature}')
-    print(f'Fahrenheit Temperature: {f_temperature}\n')
+    print("\nDataset #1:")
+    print(f"Celsius temperature: {adapter1.get_celsius_temperature()}")
+    print(f"Fahrenheit temperature: {adapter1.get_fahrenheit_temperature()}\n")
+
+    print("\nDataset #2:")
+    print(f"Celsius temperature: {adapter2.get_celsius_temperature()}")
+    print(f"Fahrenheit temperature: {adapter2.get_fahrenheit_temperature()}\n")
