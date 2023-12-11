@@ -1,7 +1,10 @@
 from abc import ABC
 
+class Person(ABC):
+    def get_name(self):
+        pass
 
-class Empolyee(ABC):
+class Empolyee(Person):
     def __init__(self, name: str) -> None:
         self.name = name
 
@@ -9,7 +12,7 @@ class Empolyee(ABC):
         return self.name
 
 
-class Manager(ABC):
+class Manager(Person):
     def __init__(self, name) -> None:
         self.name = name
     
@@ -38,9 +41,11 @@ class Team(ABC):
                 self.employees.remove(uniq_employee)
 
     def print_team_info(self) -> None:
-        print(f'Manager: {self.manager.get_name()}')
+        if self.manager:
+            print(f'Manager: {self.manager.get_name()}')
+            
         for employee in self.employees:
-            print(employee.get_name())
+            print(f'Employee: {employee.get_name()}')
         print('\n')
          
 
@@ -77,7 +82,7 @@ class Company(ABC):
     def __init__(self, name: str, year: int) -> None:
         self.name = name
         self.year = year
-        self.departments = list()
+        self.departments = dict()
 
     def add_department(self, department: Department) -> None:
         self.departments[department.get_name()] = department
