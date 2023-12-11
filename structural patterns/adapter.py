@@ -38,6 +38,8 @@ class Adapter(CelsiusTemperature, FahrenheitTemperature):
     def get_fahrenheit_temperature(self) -> int:
         return float(self.fahrenheit.get_temperature())
 
+
+
 if __name__ == '__main__':
     celsius = Celsius(100)
     fahrenheit = Fahrenheit(100)
