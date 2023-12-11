@@ -4,13 +4,12 @@ class Person(ABC):
     def get_name(self):
         pass
 
-class Empolyee(Person):
+class Employee(Person):
     def __init__(self, name: str) -> None:
         self.name = name
 
     def get_name(self) -> str:
         return self.name
-
 
 class Manager(Person):
     def __init__(self, name) -> None:
@@ -18,7 +17,6 @@ class Manager(Person):
     
     def get_name(self) -> str:
         return self.name
-
 
 class Team(ABC):
     def __init__(self, name) -> None:
@@ -32,11 +30,11 @@ class Team(ABC):
     def assign_manager(self, manager: Manager) -> None:
         self.manager = manager
 
-    def add_employee(self, employee: Empolyee) -> None:
+    def add_employee(self, employee: Employee) -> None:
         self.employees.append(employee)
 
-    def delete_employee(self, employee: Empolyee) -> None:
-        for uniq_employee in self.employees:
+    def delete_employee(self, employee: Employee) -> None:
+        for uniq_employee in self.employees.copy():
             if uniq_employee.get_name() == employee.get_name():
                 self.employees.remove(uniq_employee)
 
@@ -47,8 +45,6 @@ class Team(ABC):
         for employee in self.employees:
             print(f'Employee: {employee.get_name()}')
         print('\n')
-         
-
 
 class Department(ABC):
     def __init__(self, name: str) -> None:
@@ -58,8 +54,8 @@ class Department(ABC):
     def get_name(self) -> str:
         return self.name
 
-    def add_employee(self, name: str, employee: Empolyee) -> None:
-        self.teams[name].add_employee(employee)
+    def add_employee(self, team_name: str, employee: Employee) -> None:
+        self.teams[team_name].add_employee(employee)
 
     def create_team(self, name: str, manager: str) -> None:
         team = Team(name)
@@ -67,16 +63,14 @@ class Department(ABC):
         self.teams[name] = team
 
     def delete_team(self, name: str) -> None:
-        for team in self.teams:
-            if team.get_name() == name:
-                self.teams.remove(team)
+        if name in self.teams:
+            del self.teams[name]
 
     def print_department_info(self):
         print(f'Department: {self.get_name()}\n')
-        for key, val in self.teams.items():
-            print(f'Team: {key}')
+        for val in self.teams.values():
+            print(f'Team: {val.get_team_name()}')
             val.print_team_info()
-
 
 class Company(ABC):
     def __init__(self, name: str, year: int) -> None:
@@ -91,22 +85,20 @@ class Company(ABC):
         print(f'{self.name} founded in {self.year}.')
 
     def print_department_info(self, name: str) -> None:
-        for key, department in self.departments.items():
-            if key == name:
+        for department in self.departments.values():
+            if department.get_name() == name:
                 self.print_company_info()
-                print(f'Department: {key}')
+                print(f'Department: {name}')
                 department.print_department_info()
-
-
 
 if __name__ == '__main__':
     manager = Manager('Gambit')
-    employee1 = Empolyee('Erza Landon')
-    employee2 = Empolyee('Charles Xavier')
-    employee3 = Empolyee('Erik Lehnsherr')
+    employee1 = Employee('Erza Landon')
+    employee2 = Employee('Charles Xavier')
+    employee3 = Employee('Erik Lehnsherr')
 
     department1 = Department('Department 1')
-    department1.create_team('Team X', manager)
+    department1.create_team('Team X', 'Gambit')
     department1.add_employee('Team X', employee1)
     department1.add_employee('Team X', employee2)
     department1.add_employee('Team X', employee1)
