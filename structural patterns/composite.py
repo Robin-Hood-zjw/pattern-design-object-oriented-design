@@ -88,7 +88,6 @@ class Company(ABC):
         for department in self.departments.values():
             if department.get_name() == name:
                 self.print_company_info()
-                print(f'Department: {name}')
                 department.print_department_info()
 
 if __name__ == '__main__':
