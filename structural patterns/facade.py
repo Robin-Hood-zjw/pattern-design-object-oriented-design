@@ -13,11 +13,11 @@ class Drive_C(Drive):
     memory = dict()
 
     def add_folder(self, name: str) -> None:
-        self.memory[name] = dict()
+        # self.memory[name] = dict()
+        super().add_folder(name)
 
     def delete_folder(self, name: str) -> None:
-        if name in self.memory:
-            del self.memory[name]
+        super().delete_folder(name)
     
     def scan_drive(self, name: str) -> dict:
         result = {'length': 0, 'files': []}
@@ -34,11 +34,10 @@ class Drive_D(Drive):
     memory = dict()
 
     def add_folder(self, name: str) -> None:
-        self.memory[name] = dict()
+        super().add_folder(name)
 
     def delete_folder(self, name: str) -> None:
-        if name in self.memory:
-            del self.memory[name]
+        super().delete_folder(name)
     
     def scan_drive(self, name: str) -> dict:
         result = {'length': 0, 'files': []}
@@ -83,3 +82,5 @@ if __name__ == '__main__':
     print(search)
 
     windows_system.clear_system()
+    search = windows_system.search_file('operation overload')
+    print(search)
