@@ -49,6 +49,7 @@ class Drive_D(Drive):
 
         return result
 
+
 class Windows_System(ABC):
     def __init__(self, drive_c: Drive_C, driver_d: Drive_D) -> None:
         self.Drive_C = drive_c
