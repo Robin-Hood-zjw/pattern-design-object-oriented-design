@@ -1,8 +1,6 @@
 from abc import ABC
 
 class Drive(ABC):
-    memory = dict()
-
     def add_folder(self, name: str) -> None:
         self.memory[name] = dict()
 
@@ -12,22 +10,45 @@ class Drive(ABC):
 
 
 class Drive_C(Drive):
+    memory = dict()
+
     def add_folder(self, name: str) -> None:
         self.memory[name] = dict()
 
     def delete_folder(self, name: str) -> None:
         if name in self.memory:
             del self.memory[name]
+    
+    def scan_drive(self, name: str) -> dict:
+        result = {'length': 0, 'files': []}
+
+        for file in list(self.memory.keys()):
+            if file == name:
+                result['files'].append(file)
+                result['length'] += 1
+
+        return result
 
 
 class Drive_D(Drive):
+    memory = dict()
+
     def add_folder(self, name: str) -> None:
         self.memory[name] = dict()
 
     def delete_folder(self, name: str) -> None:
         if name in self.memory:
             del self.memory[name]
+    
+    def scan_drive(self, name: str) -> dict:
+        result = {'length': 0, 'files': []}
 
+        for file in list(self.memory.keys()):
+            if file == name:
+                result['files'].append(file)
+                result['length'] += 1
+
+        return result
 
 class Windows_System(ABC):
     def __init__(self, drive_c: Drive_C, driver_d: Drive_D) -> None:
@@ -35,22 +56,18 @@ class Windows_System(ABC):
         self.Drive_D = driver_d
 
     def search_file(self, name: str) -> dict:
-        result = { 'result': 0, 'files': list() }
+        result1 = self.Drive_C.scan_drive(name)
+        result2 = self.Drive_D.scan_drive(name)
 
-        for file_name, file in self.Drive_C.memory.items():
-            if file_name == name:
-                result['files'].append(file)
-
-        for file_name, file in self.Drive_D.memory.items():
-            if file_name == name:
-                result['files'].append(file)
-
-        return result
+        return {'Drive C': result1, 'Drive D': result2}
 
 
     def clear_system(self) -> None:
-        for key in self.Drive_D.keys():
-            del self.Drive_D[key]
+        for key in list(self.Drive_C.memory.keys()):
+            del self.Drive_C.memory[key]
+
+        for key in list(self.Drive_D.memory.keys()):
+            del self.Drive_D.memory[key]
 
 
 
