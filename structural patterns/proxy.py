@@ -43,6 +43,7 @@ class YouTube(ABC):
             proxy_video.play()
 
 
+
 if __name__ == '__main__':
     youtube_platform = YouTube()
     youtube_platform.play_video('Band of Brothers Theme', 'https://www.youtube.com/watch?v=dcNUUCZ4y1U')
