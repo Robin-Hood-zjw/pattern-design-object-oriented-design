@@ -4,23 +4,23 @@ from abc import ABC
 class TextEditor(ABC):
     def __init__(self) -> None:
         self.text_list = list()
-        self.last_behavior = list()
 
     def insert(self, text: str, position: int) -> None:
         if text != ' ':
-            length = len(self.text_list)
-            self.text_list[length - 1] += text
-            self.last_behavior[0] = length
-            self.last_behavior[1] = text
+            self.text_list.insert(position, text)
 
     def delete(self, start: int, end: int) -> None:
-        self.text_list = self.text_list[:start] + self.text_list[end + 1:]
+        del self.text_list[start:end]
 
     def get_text(self) -> str:
-        return self.text_list.join(' ') + '.'
+        result = ''
+        for string in self.text_list:
+            result += string
+        
+        return result
 
 
-class Command(ABC):
+class EditorCommand(ABC):
     def execute(self) -> None:
         pass
 
@@ -30,8 +30,7 @@ class Command(ABC):
     def redo(self) -> None:
         pass
 
-
-class InsertCommand(Command):
+class InsertCommand(EditorCommand):
     def __init__(self, text: str, editor: TextEditor, position: int) -> None:
         self.text = text
         self.editor = editor
@@ -40,13 +39,13 @@ class InsertCommand(Command):
     def execute(self) -> None:
         self.editor.insert(self.text, self.index)
 
-    def undo(self, start: int, end: int) -> None:
-        self.editor.delete(start, end)
+    def undo(self) -> None:
+        self.editor.delete(self.index, self.index + len(self.text))
 
     def redo(self) -> None:
         self.execute()
 
-class DeleteCommand(Command):
+class DeleteCommand(EditorCommand):
     def __init__(self, editor: TextEditor, position: int, length: int) -> None:
         self.editor = editor
         self.index = position
@@ -58,12 +57,12 @@ class DeleteCommand(Command):
         self.deleted_text = text[self.index, self.index + self.length]
         self.editor.delete(self.index, self.index + self.length)
 
-    def undo(self, start: int, end: int) -> None:
-        self.editor.delete(start, end)
+    def undo(self) -> None:
+        if self.deleted_text is not None:
+            self.editor.insert(self.deleted_text, self.index)
 
     def redo(self) -> None:
         self.execute()
-
 
 
 class Command_Manipulator(ABC):
@@ -71,7 +70,7 @@ class Command_Manipulator(ABC):
         self.history = list()
         self.redo_history = list()
 
-    def execute(self, command: Command) -> None:
+    def execute(self, command: EditorCommand) -> None:
         command.execute()
         self.history.append(command)
         self.redo_history.clear()
