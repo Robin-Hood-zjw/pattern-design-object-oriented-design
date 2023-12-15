@@ -16,7 +16,7 @@ class TextEditor(ABC):
     def delete(self, start: int, end: int) -> None:
         self.text_list = self.text_list[:start] + self.text_list[end + 1:]
 
-    def output(self) -> str:
+    def get_text(self) -> str:
         return self.text_list.join(' ') + '.'
 
 
@@ -32,7 +32,7 @@ class Command(ABC):
 
 
 class InsertCommand(Command):
-    def __init__(self, text: str, editor: TextEditor, position: int):
+    def __init__(self, text: str, editor: TextEditor, position: int) -> None:
         self.text = text
         self.editor = editor
         self.index = position
@@ -47,13 +47,16 @@ class InsertCommand(Command):
         self.execute()
 
 class DeleteCommand(Command):
-    def __init__(self, text: str, editor: TextEditor, position: int):
-        self.text = text
+    def __init__(self, editor: TextEditor, position: int, length: int) -> None:
         self.editor = editor
         self.index = position
+        self.length = length
+        self.deleted_text = None
 
     def execute(self) -> None:
-        self.editor.insert(self.text, self.index)
+        text = self.editor.get_text()
+        self.deleted_text = text[self.index, self.index + self.length]
+        self.editor.delete(self.index, self.index + self.length)
 
     def undo(self, start: int, end: int) -> None:
         self.editor.delete(start, end)
@@ -86,10 +89,13 @@ class Command_Manipulator(ABC):
             command.redo()
 
 
+
 if __name__ == '__main__':
     editor = TextEditor()
     manipulator = Command_Manipulator()
 
     manipulator.execute(InsertCommand('Hello, ', editor, 0))
     manipulator.execute(InsertCommand('world!', editor, 7))
-    manipulator.exe
+    manipulator.execute(DeleteCommand(editor, 5, 2))
+
+    editor.get_text()
