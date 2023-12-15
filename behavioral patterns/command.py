@@ -54,7 +54,7 @@ class DeleteCommand(EditorCommand):
 
     def execute(self) -> None:
         text = self.editor.get_text()
-        self.deleted_text = text[self.index, self.index + self.length]
+        self.deleted_text = text[self.index : self.index + self.length]
         self.editor.delete(self.index, self.index + self.length)
 
     def undo(self) -> None:
@@ -97,4 +97,13 @@ if __name__ == '__main__':
     manipulator.execute(InsertCommand('world!', editor, 7))
     manipulator.execute(DeleteCommand(editor, 5, 2))
 
-    editor.get_text()
+    print("Current text: " + "".join(editor))
+
+    manipulator.undo()
+    print("After undo: " + "".join(editor))
+
+    manipulator.undo()
+    print("After undo: " + "".join(editor))
+
+    manipulator.redo()
+    print("After redo: " + "".join(editor))
