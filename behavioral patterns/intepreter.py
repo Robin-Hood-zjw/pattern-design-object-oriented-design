@@ -5,14 +5,12 @@ class Expression(ABC):
     def interpret(self) -> None:
         pass
 
-
 class PrintExpression(Expression):
     def __init__(self, message: str) -> None:
         self.message = message
 
     def interpret(self) -> None:
         print(self.message)
-
 
 class RepeatExpression(Expression):
     def __init__(self, count: int, expression: Expression):
