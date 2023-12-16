@@ -64,6 +64,13 @@ class DeleteCommand(EditorCommand):
     def redo(self) -> None:
         self.execute()
 
+class OutputCommand(EditorCommand):
+    def __init__(self,  editor: TextEditor) -> None:
+        self.editor = editor
+    
+    def execute(self) -> str:
+        return self.editor.get_text()
+
 
 class Command_Manipulator(ABC):
     def __init__(self) -> None:
@@ -72,8 +79,8 @@ class Command_Manipulator(ABC):
 
     def execute(self, command: EditorCommand) -> None:
         command.execute()
-        self.history.append(command)
         self.redo_history.clear()
+        self.history.append(command)
 
     def undo(self) -> None:
         if self.history:
@@ -95,15 +102,6 @@ if __name__ == '__main__':
 
     manipulator.execute(InsertCommand('Hello, ', editor, 0))
     manipulator.execute(InsertCommand('world!', editor, 7))
-    manipulator.execute(DeleteCommand(editor, 5, 2))
-
-    print("Current text: " + "".join(editor))
-
-    manipulator.undo()
-    print("After undo: " + "".join(editor))
-
-    manipulator.undo()
-    print("After undo: " + "".join(editor))
-
-    manipulator.redo()
-    print("After redo: " + "".join(editor))
+    # manipulator.execute(DeleteCommand(editor, 5, 2))
+    # manipulator.execute(OutputCommand(editor))
+    print(editor.get_text())
