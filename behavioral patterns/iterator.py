@@ -28,7 +28,7 @@ class BookIterator(Iterator):
 class Sorted_BookIterator(Iterator):
     def __init__(self, books: list[Book]) -> None:
         self.index = 0
-        self.sorted_books = sorted(books, key=lambda book: book.get_title())
+        self.sorted_books = sorted(books, key=lambda book: book.get_title(), reverse=False)
 
     def __next__(self) -> Book:
         if self.index < len(self.sorted_books):
@@ -59,9 +59,9 @@ class BookShelf(ABC):
 
 if __name__ == '__main__':
     bookshelf = BookShelf()
-    bookshelf.add_book(Book('Book 1'))
-    bookshelf.add_book(Book('Book 2'))
     bookshelf.add_book(Book('Book 3'))
+    bookshelf.add_book(Book('Book 2'))
+    bookshelf.add_book(Book('Book 1'))
 
     itr = bookshelf.sorted_iterator()
     for book in itr:
