@@ -1,3 +1,5 @@
 # Pattern Design: Object-oriented Design
 
-## This repo talks about all the 23 design patterns and analyzes the advantages and disadvantages of them.
+## The Purpose of the Repository
+
+This repo talks about all the 23 design patterns and analyzes the advantages and disadvantages of them. I analyzed each design pattern via Python code examples.
