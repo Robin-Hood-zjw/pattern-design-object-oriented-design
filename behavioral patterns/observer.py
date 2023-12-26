@@ -41,6 +41,8 @@ class NewsletterPublisher(Subject):
         self.latest_newsletter = newsletter
         self.notify_observers()
 
+
+
 if __name__ == '__main__':
     publisher = NewsletterPublisher()
 
