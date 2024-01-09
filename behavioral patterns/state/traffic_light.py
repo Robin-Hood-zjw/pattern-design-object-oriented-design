@@ -27,7 +27,6 @@ class TrafficLight(ABC):
         self.state.handle(self)
 
 
-
 if __name__ == '__main__':
     traffic_light = TrafficLight()
 
