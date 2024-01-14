@@ -3,7 +3,7 @@ from abc import ABC
 
 
 class ShapePrototype(ABC):
-    def __init__(self, color, width, height):
+    def __init__(self, color: str, width: str, height: str) -> None:
         self.color = color
         self.width = width
         self.height = height
@@ -11,30 +11,28 @@ class ShapePrototype(ABC):
     def clone(self):
         pass
 
-    def show_info(self):
+    def show_info(self) -> None:
         pass
 
 class Rectangle(ShapePrototype):
-    def __init__(self, color, width, height):
+    def __init__(self, color: str, width: str, height: str) -> None:
         super().__init__(color, width, height)
 
-    def clone(self):
-        # print('Cloned a rectangle.')
+    def clone(self) -> ShapePrototype:
         return Rectangle(self.color, self.width, self.height)
     
-    def show_info(self):
+    def show_info(self) -> None:
         print('Type: Rectangle')
         print(f'Color: {self.color} Width: {self.width} Height: {self.height}\n')
 
 class Square(Rectangle):
-    def __init__(self, color, width, height):
+    def __init__(self, color: str, width: str, height: str) -> None:
         super().__init__(color, width, height)
 
-    def clone(self):
-        # print('Cloned a square.')
+    def clone(self) -> Rectangle:
         return Square(self.color, self.width, self.height)
     
-    def show_info(self):
+    def show_info(self) -> None:
         print('Type: Square')
         super().show_info()
 
