@@ -3,51 +3,50 @@ from abc import ABC
 
 
 class Sofa(ABC):
-    def show_info(self):
+    def show_info(self) -> None:
         pass
 
 class ModernSofa(Sofa):
-    def show_info(self):
+    def show_info(self) -> None:
         print('modern sofa')
 
 class ClassicalSofa(Sofa):
-    def show_info(self):
+    def show_info(self) -> None:
         print('classical sofa')
 
 
 class Chair(ABC):
-    def show_info(self):
+    def show_info(self) -> None:
         pass
 
 class ModernChair(ABC):
-    def show_info(self):
+    def show_info(self) -> None:
         print('modern chair')
 
 class ClassicalChair(ABC):
-    def show_info(self):
+    def show_info(self) -> None:
         print('classical chair')
 
 
-
 class Factory(ABC):
-    def create_sofa(self):
+    def create_sofa(self) -> None:
         pass
 
-    def create_chair(self):
+    def create_chair(self) -> None:
         pass
 
 class ModernFactory(ABC):
-    def create_sofa(self):
+    def create_sofa(self) -> Sofa:
         return ModernSofa()
 
-    def create_chair(self):
+    def create_chair(self) -> Chair:
         return ModernChair()
 
 class ClassicalFactory(ABC):
-    def create_sofa(self):
+    def create_sofa(self) -> Sofa:
         return ClassicalSofa()
 
-    def create_chair(self):
+    def create_chair(self) -> Chair:
         return ClassicalChair()
 
 
