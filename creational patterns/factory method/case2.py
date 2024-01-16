@@ -5,36 +5,36 @@ class Block(ABC):
         pass
     
 class Circle_Block(Block):
-    def show_info(self):
+    def show_info(self) -> None:
         print('Circle Block')
         
 class Square_Block(Block):
-    def show_info(self):
+    def show_info(self) -> None:
         print('Square Block')
         
 
 class Factory(ABC):
-    def __init__(self):
+    def __init__(self) -> None:
         pass
     
-    def create(self):
+    def create(self) -> None:
         pass
     
 class Circle_Factory(Factory):
-    def __init__(self):
+    def __init__(self) -> None:
         self.storage = list()
     
-    def create(self, num: int):
+    def create(self, num: int) -> None:
         for _ in range(num):
             block = Circle_Block()
             self.storage.append(block)
             block.show_info()
         
 class Square_Factory(Factory):
-    def __init__(self):
+    def __init__(self) -> None:
         self.storage = list()
     
-    def create(self, num: int):
+    def create(self, num: int) -> None:
         for _ in range(num):
             block = Square_Block()
             self.storage.append(block)
