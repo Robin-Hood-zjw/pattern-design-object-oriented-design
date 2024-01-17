@@ -2,15 +2,15 @@ from abc import ABC
 
 
 class PriceStrategy(ABC):
-    def calculate_price(self, price):
+    def calculate_price(self, pric: int) -> int:
         pass
 
 class PriceStrategy1(PriceStrategy):
-    def calculate_price(self, price):
+    def calculate_price(self, price: int) -> int:
         return int(price * 0.9)
         
 class PriceStrategy2(PriceStrategy):
-    def calculate_price(self, price):
+    def calculate_price(self, price: int) -> int:
         if price >= 300:
             return price - 40
         elif price >= 200:
@@ -24,10 +24,10 @@ class PriceStrategy2(PriceStrategy):
         
 
 class Calculator(ABC):
-    def __init__(self, strategy):
+    def __init__(self, strategy: PriceStrategy) -> None:
         self.strategy = strategy
         
-    def calculate(self, price):
+    def calculate(self, price: int) -> int:
         return self.strategy.calculate_price(price)
 
 
