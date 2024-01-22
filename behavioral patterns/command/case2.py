@@ -29,6 +29,7 @@ class OrderMachine(ABC):
         self.command.execute()
 
 
+
 if __name__ == '__main__':
     command1 = OrderCommand(Drink('Cola'))
     command2 = OrderCommand(Drink('Coffee'))
