@@ -2,30 +2,30 @@ from abc import ABC
 
 
 class Drink(ABC):
-    def __init__(self, name):
+    def __init__(self, name) -> None:
         self.name = name
     
-    def make(self):
+    def make(self) -> None:
         print(f'{self.name} is ready!')
 
 
 class Command(ABC):
-    def execute(self):
+    def execute(self) -> None:
         pass
     
 class OrderCommand(Command):
-    def __init__(self, receiver):
+    def __init__(self, receiver) -> None:
         self.receiver = receiver
     
-    def execute(self):
+    def execute(self) -> None:
         self.receiver.make()
 
 
 class OrderMachine(ABC):
-    def __init__(self, command):
+    def __init__(self, command) -> None:
         self.command = command
         
-    def execute(self):
+    def execute(self) -> None:
         self.command.execute()
 
 
