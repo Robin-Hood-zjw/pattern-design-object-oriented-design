@@ -30,10 +30,14 @@ class OrderMachine(ABC):
 
 
 if __name__ == '__main__':
-    n = int(input())
-    
-    for _ in range(n):
-        name = input()
-        command = OrderCommand(Drink(name))
-        machine = OrderMachine(command)
-        machine.execute()
+    command1 = OrderCommand(Drink('Cola'))
+    command2 = OrderCommand(Drink('Coffee'))
+    command3 = OrderCommand(Drink('Monster Drink'))
+
+    machine1 = OrderMachine(command1)
+    machine2 = OrderMachine(command2)
+    machine3 = OrderMachine(command3)
+
+    machine1.execute()
+    machine2.execute()
+    machine3.execute()
