@@ -2,30 +2,30 @@ from abc import ABC
 
 
 class Student(ABC):
-    def __init__(self, name, id):
+    def __init__(self, name: str, id: str) -> None:
         self.name = name
         self.id = id
         
-    def get_name(self):
+    def get_name(self) -> str:
         return self.name
         
-    def get_ID(self):
+    def get_ID(self) -> str:
         return self.id
 
 
 class Iterator(ABC):
-    def check_next(self):
+    def check_next(self) -> bool:
         pass
     
     def get_next(self):
         pass
 
 class StudentIterator(Iterator):
-    def __init__(self, students):
+    def __init__(self, students: list[Student]) -> None:
         self.students = students
         self.cur_index = 0
         
-    def check_next(self):
+    def check_next(self) -> bool:
         return self.cur_index < len(self.students)
         
     def get_next(self):
@@ -38,17 +38,17 @@ class StudentIterator(Iterator):
 
 
 class Collection(ABC):
-    def iterate(self):
+    def get_iterater(self) -> Iterator:
         pass
     
 class StudentCollection(Collection):
-    def __init__(self):
+    def __init__(self) -> None:
         self.students = list()
         
-    def add_student(self, student):
+    def add_student(self, student: Student) -> None:
         self.students.append(student)
 
-    def get_iterater(self):
+    def get_iterater(self) -> Iterator:
         return StudentIterator(self.students)
 
 if __name__ == '__main__':
