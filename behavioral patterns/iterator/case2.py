@@ -52,7 +52,6 @@ class StudentCollection(Collection):
         return StudentIterator(self.students)
 
 if __name__ == '__main__':
-    N = int(input())
     collection = StudentCollection()
 
     collection.add_student(Student('Ada', '010'))
@@ -63,6 +62,6 @@ if __name__ == '__main__':
 
     iterator = collection.get_iterater()
 
-    for _ in range(N):
+    for _ in range(5):
         student = iterator.get_next()
         print(f'{student.get_name()} {student.get_ID()}')
