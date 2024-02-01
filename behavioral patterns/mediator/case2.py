@@ -6,14 +6,14 @@ class User(ABC):
         self.name = name
 
     def send(self, message) -> None:
-        self.mediator.send(message, self)
+        self.mediator.send(self.name, message)
 
     def receive(self, message) -> None:
         print(f'{self.name} received: {message}')
 
 
 class Mediator(ABC):
-    def send(self) -> None:
+    def send(self, name, message) -> None:
         pass
 
 class ChatSystem(Mediator):
@@ -22,6 +22,7 @@ class ChatSystem(Mediator):
 
     def add_user(self, user) -> None:
         self.users.append(user)
+        user.mediator = self
 
     def send(self, name, message) -> None:
         for user in self.users:
@@ -29,13 +30,20 @@ class ChatSystem(Mediator):
                 user.receive(message)
 
 
+class ChatUser(User):
+    pass
 
 if __name__ == '__main__':
     system = ChatSystem()
-    system.add_user('user1')
-    system.add_user('user2')
-    system.add_user('user3')
 
-    system.send('user1', 'Hi there')
-    system.send('user2', 'Hey there')
-    system.send('user3', 'Hello there')
+    user1 = ChatUser('user1')
+    user2 = ChatUser('user2')
+    user3 = ChatUser('user3')
+
+    system.add_user(user1)
+    system.add_user(user2)
+    system.add_user(user3)
+
+    user1.send('Hi there')
+    user2.send('Hey there')
+    user3.send('Hello there')
