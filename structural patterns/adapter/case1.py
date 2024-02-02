@@ -1,5 +1,7 @@
 from abc import ABC
 
+
+
 class CelsiusTemperature(ABC):
     def get_temperature(self):
         pass
@@ -14,14 +16,14 @@ class Celsius(CelsiusTemperature):
 
     def get_temperature(self) -> int:
         return self.temperature
-    
+
 class Fahrenheit(FahrenheitTemperature):
     def __init__(self, temperature: int) -> None:
         self.temperature = temperature
 
     def get_temperature(self) -> int:
         return self.temperature
-    
+
 
 class Adapter(CelsiusTemperature, FahrenheitTemperature):
     def __init__(self, celsius=None, fahrenheit=None) -> None:
@@ -34,7 +36,7 @@ class Adapter(CelsiusTemperature, FahrenheitTemperature):
 
     def get_celsius_temperature(self) -> int:
         return float(self.celsius.get_temperature())
-    
+
     def get_fahrenheit_temperature(self) -> int:
         return float(self.fahrenheit.get_temperature())
 
