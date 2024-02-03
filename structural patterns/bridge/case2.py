@@ -39,23 +39,20 @@ class RemoteControl(ABC):
     def __init__(self, implementor)-> None:
         self.implementor = implementor
 
-    def turn_on(self) -> str:
-        return self.implementor.on()
+    def turn_on(self) -> None:
+        print(self.implementor.on())
 
-    def turn_off(self) -> str:
-        return self.implementor.off()
+    def turn_off(self) -> None:
+        print(self.implementor.off())
 
-    def switch_channel(self) -> str:
-        return self.implementor.tune_channel()
-
-class AdvancedRemoteControl(RemoteControl):
-    pass
+    def switch_channel(self) -> None:
+        print(self.implementor.tune_channel())
 
 
 
 if __name__ == '__main__':
-    Sony_remote = AdvancedRemoteControl(SonyImplementor())
-    TCL_remote = AdvancedRemoteControl(TCLImplementor())
+    Sony_remote = RemoteControl(SonyImplementor())
+    TCL_remote = RemoteControl(TCLImplementor())
 
     Sony_remote.turn_on()
     Sony_remote.switch_channel()
