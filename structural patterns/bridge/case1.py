@@ -1,5 +1,6 @@
 from abc import ABC
 
+
 class Payment(ABC):
     def process_payment(self) -> None:
         pass
