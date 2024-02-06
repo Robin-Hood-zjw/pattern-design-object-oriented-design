@@ -1,4 +1,3 @@
-import sys
 from abc import ABC, abstractmethod
 
 
@@ -8,36 +7,36 @@ class Coffee(ABC):
         pass
 
 class BlackCoffee(Coffee):
-    def brew(self):
+    def brew(self) -> None:
         print('Brewing Black Coffee')
 
 class LatteCoffee(Coffee):
-    def brew(self):
+    def brew(self) -> None:
         print('Brewing Latte')
 
 class CoffeeDecorator(Coffee):
-    def __init__(self, coffee):
+    def __init__(self, coffee) -> None:
         self.add = None
         self.coffee = coffee
 
-    def brew(self):
+    def brew(self) -> None:
         self.coffee.brew()
         print(f'Adding {self.add}')
 
 class MilkDecorator(CoffeeDecorator):
-    def __init__(self, coffee):
+    def __init__(self, coffee) -> None:
         super().__init__(coffee)
         self.add = 'Milk'
 
-    def brew(self):
+    def brew(self) -> None:
         super().brew()
 
 class SugarDecorator(CoffeeDecorator):
-    def __init__(self, coffee):
+    def __init__(self, coffee) -> None:
         super().__init__(coffee)
         self.add = 'Sugar'
 
-    def brew(self):
+    def brew(self) -> None:
         super().brew()
 
 
