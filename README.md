@@ -6,7 +6,7 @@ This repo talks about all the 23 design patterns and analyzes the advantages and
 
 ### Section 2: Creational Design Patterns
 
-#### Abstract Factory Pattern
+#### Pattern #001: Abstract Factory Pattern
 
 **Definition --->**
 
@@ -23,3 +23,21 @@ This repo talks about all the 23 design patterns and analyzes the advantages and
 **Solution --->**<br>
 
 > Individual interfaces (classes) shall be initialized for the distinct product family, and then each variant for each interface shall be created following these interfaces.
+
+#### Pattern #002: Builder Pattern
+
+**Definition --->**
+
+> a design pattern that designs manufacturing complex objects step by step via the same construction code.
+
+**Scenario --->**<br>
+
+> Imagine that a developer has to design the code for each complex manufacturing step, and each product could require extra similar code structures to manufacture. Such code design elevates the work amount for developers.
+
+**Problem --->**<br>
+
+> Individual interfaces (classes) are initialized to declare the required methods and fields for the manufacturing of a product family.
+
+**Solution --->**<br>
+
+> A Builder interface (class) is initialized to declare the required methods and fields for the manufacturing of a product family. Each inherited child class (product) is responsible for the manufacturing of a certain product, so builders can be customized by overriding the code in each inherited method.
