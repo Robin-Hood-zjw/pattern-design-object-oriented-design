@@ -32,11 +32,11 @@ This repo talks about all the 23 design patterns and analyzes the advantages and
 
 **Scenario --->**<br>
 
-> Imagine that a developer has to design the code for each complex manufacturing step, and each product could require extra similar code structures to manufacture. Such code design elevates the work amount for developers.
+> The product's manufacturing process can be similar or even the same. Repetitive coding in the same method representation is workload-requiring, so the code structure to alleviate the mass production of objects is helpful.
 
 **Problem --->**<br>
 
-> Individual interfaces (classes) are initialized to declare the required methods and fields for the manufacturing of a product family.
+> Imagine that a developer has to design the code for each complex manufacturing step, and each product could require extra similar code structures to manufacture. Such code design elevates the work amount for developers.
 
 **Solution --->**<br>
 
