@@ -8,7 +8,7 @@ This repo talks about all the 23 design patterns and analyzes the advantages and
 
 ### Section 2: Creational Design Patterns
 
-#### Pattern #001: Abstract Factory Pattern
+#### Pattern #001: [Abstract Factory Pattern](https://github.com/Robin-Hood-zjw/pattern-design-object-oriented-design/tree/main/creational%20patterns/abstract%20factory)
 
 **Definition --->**
 
