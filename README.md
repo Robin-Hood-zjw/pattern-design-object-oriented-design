@@ -1,12 +1,6 @@
 # Pattern Design: Object-oriented Design
 
-### Section 1: The Purpose of the Repository
-
-This repo talks about all the 23 design patterns and analyzes the advantages and disadvantages of them.
-
-<br/>
-
-### Section 2: Creational Design Patterns
+### Section 1: Creational Design Patterns
 
 #### Pattern #001: [Abstract Factory Pattern](https://github.com/Robin-Hood-zjw/pattern-design-object-oriented-design/tree/main/creational%20patterns/abstract%20factory)
 
