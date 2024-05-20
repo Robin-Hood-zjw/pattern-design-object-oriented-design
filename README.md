@@ -28,7 +28,7 @@ This repo talks about all the 23 design patterns and analyzes the advantages and
 
 <br/>
 
-#### Pattern #002: Builder Pattern
+#### Pattern #002: [Builder Pattern](https://github.com/Robin-Hood-zjw/pattern-design-object-oriented-design/tree/main/creational%20patterns/builder)
 
 **Definition --->**
 
@@ -45,3 +45,63 @@ This repo talks about all the 23 design patterns and analyzes the advantages and
 **Solution --->**<br>
 
 > A Builder interface (class) is initialized to declare the required methods and fields for the manufacturing of a product family. Each inherited child class (product) is responsible for the manufacturing of a certain product, so builders can be customized by overriding the code in each inherited method.
+
+<br/>
+
+#### Pattern #003: [Factory Method Pattern](https://github.com/Robin-Hood-zjw/pattern-design-object-oriented-design/tree/main/creational%20patterns/factory%20method)
+
+**Definition --->**
+
+>
+
+**Scenario --->**<br>
+
+>
+
+**Problem --->**<br>
+
+>
+
+**Solution --->**<br>
+
+>
+
+<br/>
+
+#### Pattern #004: [Prototype Pattern](https://github.com/Robin-Hood-zjw/pattern-design-object-oriented-design/tree/main/creational%20patterns/prototype)
+
+**Definition --->**
+
+>
+
+**Scenario --->**<br>
+
+>
+
+**Problem --->**<br>
+
+>
+
+**Solution --->**<br>
+
+>
+
+<br/>
+
+#### Pattern #005: [Singleton Pattern](https://github.com/Robin-Hood-zjw/pattern-design-object-oriented-design/tree/main/creational%20patterns/singleton)
+
+**Definition --->**
+
+>
+
+**Scenario --->**<br>
+
+>
+
+**Problem --->**<br>
+
+>
+
+**Solution --->**<br>
+
+>
