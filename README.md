@@ -4,6 +4,8 @@
 
 This repo talks about all the 23 design patterns and analyzes the advantages and disadvantages of them.
 
+<br/><br/><br/><br/><br/>
+
 ### Section 2: Creational Design Patterns
 
 #### Pattern #001: Abstract Factory Pattern
