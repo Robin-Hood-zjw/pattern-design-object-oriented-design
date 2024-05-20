@@ -6,7 +6,7 @@
 
 **Definition --->**
 
-> a design pattern that produces families of related objects without specifying concrete classes.
+> a creational design pattern that lets you produce families of related objects without specifying their concrete classes
 
 **Scenario --->**<br>
 
@@ -26,7 +26,7 @@
 
 **Definition --->**
 
-> a design pattern that designs manufacturing complex objects step by step via the same construction code.
+> a creational design pattern that lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code
 
 **Scenario --->**<br>
 
@@ -46,7 +46,7 @@
 
 **Definition --->**
 
-> a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
+> a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created
 
 **Scenario --->**<br>
 
@@ -66,7 +66,7 @@
 
 **Definition --->**
 
->
+> a creational design pattern that lets you copy existing objects without making your code dependent on their classes
 
 **Scenario --->**<br>
 
@@ -86,7 +86,7 @@
 
 **Definition --->**
 
->
+> a creational design pattern that lets you ensure that a class has only one instance, while providing a global access point to this instance
 
 **Scenario --->**<br>
 
