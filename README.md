@@ -4,7 +4,7 @@
 
 This repo talks about all the 23 design patterns and analyzes the advantages and disadvantages of them.
 
-<br/><br/><br/><br/><br/>
+<br/><br/><br/>
 
 ### Section 2: Creational Design Patterns
 
@@ -25,6 +25,8 @@ This repo talks about all the 23 design patterns and analyzes the advantages and
 **Solution --->**<br>
 
 > Individual interfaces (classes) shall be initialized for the distinct product family, and then each variant for each interface shall be created following these interfaces.
+
+<br/>
 
 #### Pattern #002: Builder Pattern
 
