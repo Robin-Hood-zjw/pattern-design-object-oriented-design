@@ -20,8 +20,6 @@
 
 > Individual interfaces (classes) shall be initialized for the distinct product family, and then each variant for each interface shall be created following these interfaces.
 
-<br/>
-
 #### Pattern #002: [Builder Pattern](https://github.com/Robin-Hood-zjw/pattern-design-object-oriented-design/tree/main/creational%20patterns/builder)
 
 **Definition --->**
@@ -39,8 +37,6 @@
 **Solution --->**<br>
 
 > A Builder interface (class) is initialized to declare the required methods and fields for the manufacturing of a product family. Each inherited child class (product) is responsible for the manufacturing of a certain product, so builders can be customized by overriding the code in each inherited method.
-
-<br/>
 
 #### Pattern #003: [Factory Method Pattern](https://github.com/Robin-Hood-zjw/pattern-design-object-oriented-design/tree/main/creational%20patterns/factory%20method)
 
@@ -60,8 +56,6 @@
 
 >
 
-<br/>
-
 #### Pattern #004: [Prototype Pattern](https://github.com/Robin-Hood-zjw/pattern-design-object-oriented-design/tree/main/creational%20patterns/prototype)
 
 **Definition --->**
@@ -79,8 +73,6 @@
 **Solution --->**<br>
 
 >
-
-<br/>
 
 #### Pattern #005: [Singleton Pattern](https://github.com/Robin-Hood-zjw/pattern-design-object-oriented-design/tree/main/creational%20patterns/singleton)
 
