@@ -78,7 +78,7 @@
 
 **Definition --->**
 
-> a creational design pattern that lets you ensure that a class has only one instance, while providing a global access point to this instance
+> a creational design pattern that lets you ensure that a class has only one instance, while providing a global access point to this instance principle
 
 **Scenario --->**<br>
 
@@ -86,7 +86,7 @@
 
 **Problem --->**<br>
 
->
+> The singleton pattern breaks the single responsibility, since it permits the two main responsibilities of this pattern:
 
 **Solution --->**<br>
 
