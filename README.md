@@ -4,11 +4,10 @@
 
 <details>
   <summary>Creational Pattern #01: Abstract Factory</summary>
-  #### Pattern #001: [Abstract Factory Pattern](https://github.com/Robin-Hood-zjw/pattern-design-object-oriented-design/tree/main/creational%20patterns/abstract%20factory)
-
-**Definition --->**
-
-> a creational design pattern that lets you produce families of related objects without specifying their concrete classes
+  https://github.com/Robin-Hood-zjw/pattern-design-object-oriented-design/tree/main/creational%20patterns/abstract%20factory
+  
+  *Definition --->*
+  > a creational design pattern that lets you produce families of related objects without specifying their concrete classes`
 
 **Scenario --->**<br>
 
