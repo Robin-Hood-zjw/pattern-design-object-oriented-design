@@ -3,25 +3,25 @@
 ### Section 1: Creational Design Patterns
 
 <details>
-    <summary>Creational Pattern 01</summary>
+    <summary>Creational Pattern 01</summary><br>
 
-    ### Pattern #001: [Abstract Factory Pattern](https://github.com/Robin-Hood-zjw/pattern-design-object-oriented-design/tree/main/creational%20patterns/abstract%20factory)
+    #### Pattern #001: [Abstract Factory Pattern](https://github.com/Robin-Hood-zjw/pattern-design-object-oriented-design/tree/main/creational%20patterns/abstract%20factory)
 
-Definition --->
+**Definition --->**
 
 > a creational design pattern that lets you produce families of related objects without specifying their concrete classes
 
-Scenario ---><br>
+**Scenario --->**<br>
 
 > Imagine that diverse products are manufactured. Each product has the same different product styles, and each manufacturing style for a product represents a variant of this product.
 
-Problem ---><br>
+**Problem --->**<br>
 
 > If a developer created each class for a product with a certain manufacturing style, many individual classes have to be created although some functionalities are the same, so it creates over-coding.
 
-Solution ---><br>
+**Solution --->**<br>
 
-Individual interfaces (classes) shall be initialized for the distinct product family, and then each variant for each interface shall be created following these interfaces.
+> Individual interfaces (classes) shall be initialized for the distinct product family, and then each variant for each interface shall be created following these interfaces.
 
 </details>
 
