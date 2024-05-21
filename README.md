@@ -2,10 +2,10 @@
 
 ### Section 1: Creational Design Patterns
 
-<details open>
-    <summary>
-        #### Pattern #001: [Abstract Factory Pattern](https://github.com/Robin-Hood-zjw/pattern-design-object-oriented-design/tree/main/creational%20patterns/abstract%20factory)
-    </summary>
+<details>
+    <summary>Creational Pattern 01</summary>
+
+    #### Pattern #001: [Abstract Factory Pattern](https://github.com/Robin-Hood-zjw/pattern-design-object-oriented-design/tree/main/creational%20patterns/abstract%20factory)
 
 **Definition --->**
 
